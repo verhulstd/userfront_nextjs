@@ -1,34 +1,11 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+voeg een .env.local toe met volgende vars
 
-## Getting Started
+NEXT_PUBLIC_USERFRONTID=xxxxxxx
 
-First, run the development server:
+NEXT_PUBLIC_UISIGNUPID=yyyyy
+NEXT_PUBLIC_UILOGINID=zzzz
+NEXT_PUBLIC_UIRESETID=lllll
+NEXT_PUBLIC_UILOGOUTID=bbbbb
 
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+CERTIFICATE="-----BEGIN PUBLIC KEY-----\nHIER_KOMT_DUS_JE_CERTIFICAAT_MET_BACKSLASH_N_GESHEIDEN_4dfq0+mk8YXE4\noXmALgrcCsZf6Fig6xuUV6Q7KYVOGanqAozDpb94k+sQlmNn+JxFFaxHwMN37+r6\n7v8xFlWtkvyuGtZjRAo5alzX/yxkf3cQqs+VjRyorgDrJ/PMTZ6cydZc2/t2k1VB\nNNdh2ClO2y4wbXt07Z734oFlTgYL6U6yM8yCz3GTDVScbg2zOqvYj6ZKwHkwlCd3\nhpxs/cMPZjQKMUPEkIA5/6rhtsu5w+3p6VJ3VBdSemMbEzBmMw2dlkc,dkdkl,kl,gRBi\nG2yimssss32nGd+Q6WJ7gXQSLGfgTkaygkvGr0URv4IHT0wE5rDPxJ0+SxIS7GxX\ns4LBLC4x0M02MHA8f6vNdfiRQmps2NNFfSeDIMNFbiJk7nrL6sGUyYYoGU8I8/4a\n0VrTRcD24XV5RQXebq23V0hDbLvh/C/YcLXQZFkjFExmM9hDa7Cw2dsmzdNFM2Xx\nU5+EW7krjFpqs9d9sgv5ossjdsjdhsdjhd5GjHa4K3OahTtRz2Db87i0r\npSxN74ZPmyT1MAgN/olcTfurSanCoAfprp5doBOqLdBkR91QlgI8JtQiJjJfWgza\nCf3H2QTHGu0MGhsdjsdjsljdlkdjeIm+1FWAOpsR+2rPG/Tm1kFdyLPABmKpuoe1MLagPdY\nyGam+N5ah5SX6L7+cHo3edECAwEAAQ==\n-----END PUBLIC KEY-----"
+BEARER=uf_live_webhook_vndx5j9n_727c393f1d95e9ef5ac0345d11ff7f3e
