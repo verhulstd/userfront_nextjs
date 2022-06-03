@@ -35,18 +35,21 @@ export const securePage = (ctx) => {
 
 export const secureApi = (req, res) => {
   const cookies = parseCookies({ req });
-  const token = cookies[`access.${process.env.NEXT_PUBLIC_USERFRONTID}`];
-  if (!token) {
-    res.status(401).send({ error: "Unauthorized access (1)" });
-  }
-  const publicKey = process.env.CERTIFICATE;
-  const verifiedPayload = jwt.verify(token, publicKey, {
-    algorithms: ["RS256"],
-  });
-  if (!verifiedPayload) {
-    res.status(401).send({ error: "Unauthorized access (2)" });
+  //token in cookies or in header?
+  const token =
+    cookies[`access.${process.env.NEXT_PUBLIC_USERFRONTID}`] ||
+    req.headers.authorization?.split(" ")[1];
+  if (token) {
+    try {
+      const verifiedPayload = jwt.verify(token, process.env.CERTIFICATE, {
+        algorithms: ["RS256"],
+      });
+      return verifiedPayload;
+    } catch (error) {
+      res.status(401).send({ error: "Unauthorized access" });
+    }
   } else {
-    return verifiedPayload;
+    res.status(401).send({ error: "Unauthorized access" });
   }
 };
 
