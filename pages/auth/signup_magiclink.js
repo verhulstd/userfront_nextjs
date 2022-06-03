@@ -7,7 +7,7 @@ const Login_magiclink = () => {
   const [name, setName] = useState("");
   const sendMagicLink = (e) => {
     Userfront.signup({
-      method: "password",
+      method: "passwordless",
       email,
       name,
       data: {

@@ -3,7 +3,7 @@ export default function handler(req, res) {
   //THIS WILL SECURE EVERY METHOD
   //secureApi(req, res);
 
-  //THIS WILL SECURE ONLY THE GET METHOD
+  //THIS WILL SECURE ONLY THE GET METHOD (secureApi returns the payload from the JWT)
   if (req.method === "GET") {
     const user = secureApi(req, res);
     res.send({

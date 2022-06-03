@@ -21,8 +21,7 @@ export const securePage = (ctx) => {
   if (!token) {
     redirectToLogin(ctx);
   }
-  const publicKey = process.env.CERTIFICATE;
-  const verifiedPayload = jwt.verify(token, publicKey, {
+  const verifiedPayload = jwt.verify(token, process.env.CERTIFICATE, {
     algorithms: ["RS256"],
   });
   //if token is invalid
