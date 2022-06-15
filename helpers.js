@@ -1,6 +1,7 @@
 import nookies, { parseCookies } from "nookies";
 const jwt = require("jsonwebtoken");
 import { useState, useEffect } from "react";
+import Userfront from "@userfront/react";
 
 export const parse = (mysqlData) => JSON.parse(JSON.stringify(mysqlData));
 
@@ -14,16 +15,20 @@ export const useUser = (UserFront) => {
 
 //voor in serversideprops
 export const securePage = (ctx) => {
+  console.log("checkin again");
   const cookies = nookies.get(ctx);
   const token = cookies[`access.${process.env.NEXT_PUBLIC_USERFRONTID}`];
-
   //if token does not exist
   if (!token) {
     redirectToLogin(ctx);
   }
-  const verifiedPayload = jwt.verify(token, process.env.CERTIFICATE, {
-    algorithms: ["RS256"],
-  });
+  const verifiedPayload = jwt.verify(
+    token,
+    Buffer.from(process.env.CERTIFICATE, "base64"),
+    {
+      algorithms: ["RS256"],
+    }
+  );
   //if token is invalid
   if (!verifiedPayload) {
     redirectToLogin(ctx);
@@ -40,9 +45,13 @@ export const secureApi = (req, res) => {
     req.headers.authorization?.split(" ")[1];
   if (token) {
     try {
-      const verifiedPayload = jwt.verify(token, process.env.CERTIFICATE, {
-        algorithms: ["RS256"],
-      });
+      const verifiedPayload = jwt.verify(
+        token,
+        Buffer.from(process.env.CERTIFICATE, "base64"),
+        {
+          algorithms: ["RS256"],
+        }
+      );
       return verifiedPayload;
     } catch (error) {
       res.status(401).send({ error: "Unauthorized access" });
